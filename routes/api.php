@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NewsController;
 use App\Models\WeatherReading;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -37,3 +38,7 @@ Route::get('/weather/{zip}', function(string $zip) {
 
     return $weatherReading->orderBy('id', 'DESC')->first();
 });
+
+
+Route::get('/news/fetch', [NewsController::class, 'fetch']);
+
